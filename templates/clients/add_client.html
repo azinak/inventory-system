@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}إضافة منتج{% endblock title %}
+
+{% block title2 %}إضافة منتج جديد{% endblock title2 %}
+
+{% block content %}
+<div class="col-12">
+    <div class="card card-info">
+        <div class="card-header">
+            <h3 class="card-title" style="float:right;">ملء معلومات المنتج</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form method="POST" class="form-horizontal">
+            {% csrf_token %}
+            <div class="card-body">
+                <div class="form-group row">
+                    <label for="arabicName" class="col-sm-2 control-label">الإسم عربي</label>
+                    <div class="col-sm-10">
+                        {{ form.arabic_name.errors }}
+                        <input type="text" class="form-control" id="arabicName" placeholder="الإسم عربي" name="arabic_name" value="{{ form.arabic_name.value|default_if_none:'' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-2 control-label">الإسم فرنسي</label>
+                    <div class="col-sm-10">
+                        {{ form.name.errors }}
+                        <input type="text" class="form-control" id="name" placeholder="الإسم فرنسي" name="name" value="{{ form.name.value|default_if_none:'' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="price" class="col-sm-2 control-label">السعر</label>
+                    <div class="col-sm-10">
+                        {{ form.price.errors }}
+                        <input type="text" class="form-control" id="price" placeholder="السعر" name="price" value="{{ form.price.value|default_if_none:'' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="wholesalePrice" class="col-sm-2 control-label">السعر بالجملة</label>
+                    <div class="col-sm-10">
+                        {{ form.wholesale_price.errors }}
+                        <input type="text" class="form-control" id="wholesalePrice" placeholder="السعر بالجملة" name="wholesale_price" value="{{ form.wholesale_price.value|default_if_none:'' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="distributionPrice" class="col-sm-2 control-label">سعر التوزيع</label>
+                    <div class="col-sm-10">
+                        {{ form.distribution_price.errors }}
+                        <input type="text" class="form-control" id="distributionPrice" placeholder="سعر التوزيع" name="distribution_price" value="{{ form.distribution_price.value|default_if_none:'' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="costPrice" class="col-sm-2 control-label">التكلفة</label>
+                    <div class="col-sm-10">
+                        {{ form.cost_price.errors }}
+                        <input type="text" class="form-control" id="costPrice" placeholder="التكلفة" name="cost_price" value="{{ form.cost_price.value|default_if_none:'' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="quantity" class="col-sm-2 control-label">الكمية</label>
+                    <div class="col-sm-10">
+                        {{ form.quantity.errors }}
+                        <input type="text" class="form-control" id="quantity" placeholder="الكمية المتوفرة" name="quantity" value="{{ form.quantity.value|default_if_none:'' }}">
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                <button type="submit" class="btn btn-info">حفظ</button>
+                <button type="reset" class="btn btn-default float-right">إلغاء</button>
+            </div>
+            <!-- /.card-footer -->
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
